@@ -7,12 +7,14 @@ rm(list = ls())
 if(!require("pacman")) install.packages("pacman")
 pacman::p_load('tidyverse','here', 'dplyr', 'readr')
 
+# Point to starting position
 here::i_am("analysis/observational/01_survey_data_processing.R")
 
+#access all of the files neccesary and crete dataframes
 DATA_PATH = here('data') # top-level directory for data
 RESPONSE_DATA = file.path('2023-college', 'raw', 'responses.Rdata') # path to response data file
 CODEBOOK_DATA = file.path('2023-college', 'codebooks', 'codebook_all_surveys.csv') # path to codebook data file
-CONSTRUCT_DATA = file.path('questions_to_constructs.csv') # path to construct lookup file
+CONSTRUCT_DATA = file.path('questions_to_constructs.csv') # path to construct lookup file (questions to constructs)
 OUTPUT_PATH =  here('data', '2023-college-processed')  # directory for writing processed data
 # Create the directory if it doesn't exist
 if (!dir.exists(OUTPUT_PATH)) {
